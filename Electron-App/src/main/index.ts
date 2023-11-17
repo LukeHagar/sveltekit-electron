@@ -1,8 +1,8 @@
 import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import { handler } from '../../../Built-App/src/handler.js'
 import icon from '../../resources/icon.png?asset'
+import { handler } from '../../../Svelte-Build/src/handler.js'
 import express from 'express'
 
 const port = 3000
@@ -10,17 +10,21 @@ const origin = `http://localhost:${port}`
 
 const server = express()
 
-// add a route that lives separately from the SvelteKit app
-server.get('/healthcheck', (req, res) => {
-  res.end('ok')
-})
+const createServer = async () => {
+  // add a route that lives separately from the SvelteKit app
+  server.get('/healthcheck', (req, res) => {
+    res.end('ok')
+  })
 
-// let SvelteKit handle everything else, including serving prerendered pages and static assets
-server.use(handler)
+  // let SvelteKit handle everything else, including serving prerendered pages and static assets
+  server.use(handler)
 
-server.listen(3000, () => {
-  console.log(`Server listening on ${origin}`)
-})
+  server.listen(3000, () => {
+    console.log(`Server listening on ${origin}`)
+  })
+}
+
+createServer()
 
 function createWindow(): void {
   // Create the browser window.
