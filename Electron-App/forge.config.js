@@ -1,7 +1,7 @@
 module.exports = {
   packagerConfig: {
     asar: true,
-    extraResource: ["../Svelte-Build"],
+    extraResource: ["../SvelteKit-Build"],
   },
   rebuildConfig: {},
   makers: [

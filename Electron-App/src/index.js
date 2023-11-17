@@ -3,10 +3,10 @@ const path = require("path");
 const { is } = require("@electron-toolkit/utils");
 const handlerPkg = import(
   is.dev
-    ? "../../Svelte-Build/src/handler.js"
+    ? "../../SvelteKit-Build/src/handler.js"
     : `file://${path.join(
         process.resourcesPath,
-        "Svelte-Build",
+        "SvelteKit-Build",
         "src",
         "handler.js"
       )}`
