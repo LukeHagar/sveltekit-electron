@@ -1,41 +1,35 @@
 {
-  "name": "electron-app",
+  "name": "my-new-app",
+  "productName": "my-new-app",
   "version": "1.0.0",
-  "description": "A minimal Electron application with TypeScript",
-  "main": "./out/main/index.js",
-  "author": "example.com",
-  "homepage": "https://www.electronjs.org",
+  "description": "My Electron application description",
+  "main": "src/index.js",
   "scripts": {
-    "format": "prettier --write .",
-    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
-    "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
-    "typecheck": "npm run typecheck:node && npm run typecheck:web",
-    "start": "electron-vite preview",
-    "dev": "electron-vite dev --watch",
-    "build": "npm run typecheck && electron-vite build",
-    "postinstall": "electron-builder install-app-deps",
-    "build:win": "npm run build && electron-builder --win --config",
-    "build:mac": "npm run build && electron-builder --mac --config",
-    "build:linux": "npm run build && electron-builder --linux --config"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
   },
+  "keywords": [],
+  "author": {
+    "name": "Luke Hagar",
+    "email": "lukeslakemail@gmail.com"
+  },
+  "license": "MIT",
   "dependencies": {
-    "@electron-toolkit/preload": "^2.0.0",
     "@electron-toolkit/utils": "^2.0.1",
-    "electron-updater": "^6.1.4"
+    "electron-log": "^5.0.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "express": "^4.18.2"
   },
   "devDependencies": {
-    "@electron-toolkit/eslint-config-prettier": "^1.0.1",
-    "@electron-toolkit/eslint-config-ts": "^1.0.0",
-    "@electron-toolkit/tsconfig": "^1.0.1",
-    "@types/node": "^18.18.9",
-    "electron": "^25.9.5",
-    "electron-builder": "^24.6.4",
-    "electron-vite": "^1.0.29",
-    "eslint": "^8.53.0",
-    "express": "^4.18.2",
-    "prettier": "^3.1.0",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0"
+    "@electron-forge/cli": "^7.0.0",
+    "@electron-forge/maker-deb": "^7.0.0",
+    "@electron-forge/maker-rpm": "^7.0.0",
+    "@electron-forge/maker-squirrel": "^7.0.0",
+    "@electron-forge/maker-zip": "^7.0.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.0.0",
+    "electron": "27.1.0"
   }
 }
