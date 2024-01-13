@@ -25,7 +25,7 @@ npm run build
 ```
 
 
-### Step 1: Electron
+### Step 2: Electron
 > in the `/Electron-App` folder
 
 Once the SvelteKit app is built you can then navigate to the `/Electron-App` folder and run the below command 
